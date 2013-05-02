@@ -2,13 +2,21 @@ class FruitsController < ApplicationController
   # GET /fruits
   # GET /fruits.json
   def index
-    @fruits = Fruit.all
+    @fruits = Fruit.order(:position).all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @fruits }
     end
   end
+
+def update_position
+  params["results"].each do |i, result|
+    binding.pry
+    #Fruit.update_all(position = {result[1], id = #{result[0]})
+  end
+  render :text => "nice one matey"
+end
 
   # GET /fruits/1
   # GET /fruits/1.json

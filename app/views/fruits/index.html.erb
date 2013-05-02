@@ -1,7 +1,7 @@
 <h1>My Amazing Fruit Sorter</h1>
 
 <div id="fruits">
-  <ol>
+  <ol id="sortable">
     <% @fruits.each do |fruit| %>
       <li>
         <%= render :partial => 'fruits/fruit', :locals => { :fruit => fruit } %>
