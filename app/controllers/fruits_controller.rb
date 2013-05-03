@@ -10,13 +10,18 @@ class FruitsController < ApplicationController
     end
   end
 
-def update_position
-  params["results"].each do |i, result|
-    binding.pry
-    #Fruit.update_all(position = {result[1], id = #{result[0]})
+  def update_position
+    results = params["results"]
+    
+    results.each do |i, result|
+      
+      fruit = Fruit.find(result[0])
+      fruit.position = result[1].to_i
+      fruit.save
+    end
+    render :text => "nice one matey"
+
   end
-  render :text => "nice one matey"
-end
 
   # GET /fruits/1
   # GET /fruits/1.json

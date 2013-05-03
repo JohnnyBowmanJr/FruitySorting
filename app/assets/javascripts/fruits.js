@@ -16,9 +16,9 @@ $(document).ready(function() {
 				results.push([id, counter]);
 			});
 			$.ajax({
-				url: 'fruits/update_position',
+				url: "/fruits/update_position",
 				type: "POST",
-				data: {results: results}
+				data: {results : results}
 			});
 		}
 	});
